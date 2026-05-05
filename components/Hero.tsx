@@ -335,7 +335,7 @@ export default function Hero() {
           animate={mounted ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 1.0, duration: 0.8 }}
         >
-          <div style={{ borderTop: "1px solid #1e1d1b", paddingTop: "0.6rem", marginBottom: "0.75rem", paddingLeft: "2rem" }}>
+          <div style={{ paddingTop: "0.6rem", marginBottom: "0.75rem", paddingLeft: "2rem" }}>
             <span className="font-mono text-muted" style={{ fontSize: "0.6rem", letterSpacing: "0.18em" }}>
               APPS &amp; SERVICES DEVELOPED
             </span>
