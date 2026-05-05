@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-bg: #0a0a08;
+  --color-surface: #111110;
+  --color-surface-hi: #161614;
+  --color-line: #1e1d1b;
+  --color-rule: #2a2824;
+  --color-gold: #c9a84c;
+  --color-gold-dim: #7a6330;
+  --color-gold-pale: rgba(201, 168, 76, 0.06);
+  --color-warm: #ede9e1;
+  --color-muted: #706c66;
+  --color-ink: #f2ede5;
+
+  --radius-DEFAULT: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility font-display {
+  font-family: var(--font-oswald), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+@utility font-body {
+  font-family: var(--font-source-serif), Georgia, serif;
+}
+
+@utility font-mono {
+  font-family: var(--font-plex-mono), "Courier New", monospace;
+}
+
+/* Hard reset */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a08;
+  color: #ede9e1;
+  font-family: var(--font-source-serif), Georgia, serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text selection */
+::selection {
+  background-color: rgba(201, 168, 76, 0.22);
+  color: #f2ede5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a08;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2824;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7a6330;
+}
+
+/* Gold underline draw on links */
+.link-gold {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.link-gold::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #c9a84c;
+  transition: width 0.3s ease-out;
+}
+.link-gold:hover {
+  color: #c9a84c;
+}
+.link-gold:hover::after {
+  width: 100%;
+}
+
+/* Section label style */
+.section-label {
+  font-family: var(--font-plex-mono), "Courier New", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: #7a6330;
+  text-transform: uppercase;
+}
+
+/* App marquee — infinite scroll strip */
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 42s linear infinite;
+}
+.marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 36s linear infinite;
+}
+.marquee-wrap:hover .marquee-left,
+.marquee-wrap:hover .marquee-right {
+  animation-play-state: paused;
+}
+
+/* Scroll cue pulse */
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.9; }
+}
+.scroll-cue-pulse {
+  animation: pulse-opacity 2.2s ease-in-out infinite;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

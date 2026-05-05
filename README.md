@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jim Spiewak — Personal Portfolio Site
 
-## Getting Started
+Built with Next.js 16, Tailwind CSS v4, and Framer Motion.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Replacing the Headshot
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Drop your `headshot.jpg` into `/public/headshot.jpg` — overwrite the existing placeholder file. The image should be:
+- Portrait orientation
+- High resolution (minimum 1200px tall)
+- JPEG format
 
-## Learn More
+The site applies a `sepia(20%) contrast(1.1)` filter and a left-fade mask automatically, so shoot for a neutral or slightly warm photo on a dark or neutral background.
 
-To learn more about Next.js, take a look at the following resources:
+After replacing, restart the dev server or redeploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Admin upload route** (unsecured): `/admin` — provides a browser-based upload form. Add authentication before production use.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Updating App URLs
 
-## Deploy on Vercel
+All app links are managed in `lib/apps.ts`. Each entry has:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+githubUrl: string | null;  // GitHub repo URL
+liveUrl: string | null;    // Live deployed URL (takes priority for "View App" link)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set either or both for each app. If both are null, no link is rendered.
+
+## Deploying to Vercel
+
+1. Push this repo to GitHub.
+2. Import the repo at [vercel.com/new](https://vercel.com/new).
+3. Vercel auto-detects Next.js — click Deploy.
+4. Set your custom domain in Vercel → Project → Settings → Domains.
+
+No environment variables are required for the base site.
+
+## Design System
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--color-bg` | `#0a0a08` | Page background |
+| `--color-surface` | `#111110` | Card/panel backgrounds |
+| `--color-gold` | `#c9a84c` | Primary accent |
+| `--color-gold-dim` | `#7a6330` | Secondary gold / rules |
+| `--color-warm` | `#e8e4dc` | Body copy |
+| `--color-muted` | `#6b6760` | Metadata / secondary text |
+| `--color-ink` | `#ffffff` | Display headlines only |
+
+## Typography Quick Reference
+
+| Class | Font | Used for |
+|-------|------|---------|
+| `font-display` | Oswald 700 all-caps | Section headers, name lockup |
+| `font-serif` | Playfair Display 700 italic | App names, award names, sub-headers |
+| `font-body` | Source Serif 4 400 | All body copy |
+| `font-mono` | IBM Plex Mono 400/500 | Dates, tags, metadata |
