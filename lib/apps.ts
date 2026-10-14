@@ -33,17 +33,6 @@ export const apps: App[] = [
     screenshotUrl: "/screenshots/ai-chief-of-staff.jpg",
   },
   {
-    id: "news-agent",
-    name: "News Agent (The Pulse)",
-    tag: "[NEWS AUTOMATION]",
-    description:
-      "An editorial-style AI news aggregator that monitors sources, surfaces relevant stories, and delivers them in the format of a structured briefing — not an algorithmic feed. Built for journalists who need signal, not noise.",
-    category: "professional",
-    githubUrl: null,
-    liveUrl: null,
-    screenshotUrl: "/screenshots/news-agent.jpg",
-  },
-  {
     id: "moment",
     name: "Moment",
     tag: "[PRODUCTIVITY]",
@@ -55,15 +44,15 @@ export const apps: App[] = [
     screenshotUrl: "/screenshots/moment2.jpg",
   },
   {
-    id: "claude-code-academy",
-    name: "Claude Code Academy",
-    tag: "[EDUCATION / CONSULTING]",
+    id: "counterpoint",
+    name: "Counterpoint",
+    tag: "[NEWS / CHROME EXTENSION]",
     description:
-      "A curriculum and consulting program teaching SMB owners and working professionals to build production-ready AI applications using Claude Code. Structured as a six-module progression from zero to shipping.",
+      "A Chrome extension for reading the news with the other side in view. On any article, one click finds coverage of the same story from outlets across the political spectrum.",
     category: "professional",
     githubUrl: null,
     liveUrl: null,
-    screenshotUrl: "/screenshots/claude-code-academy.jpg",
+    screenshotUrl: "/screenshots/counterpoint.jpg",
   },
   {
     id: "masters-2026",
@@ -75,6 +64,17 @@ export const apps: App[] = [
     githubUrl: null,
     liveUrl: null,
     screenshotUrl: "/screenshots/masters-2026.jpg",
+  },
+  {
+    id: "right-bower",
+    name: "Right Bower",
+    tag: "[GAMES / PWA]",
+    description:
+      "Single-player Euchre you can install on your phone. Play against computer opponents with a rules engine tested across 1,000 simulated games.",
+    category: "personal",
+    githubUrl: "https://github.com/jimspi/right-bower",
+    liveUrl: "https://right-bower.vercel.app",
+    screenshotUrl: "/screenshots/right-bower.jpg",
   },
   {
     id: "emoji-match",

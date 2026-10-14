@@ -8,7 +8,7 @@ import type { App } from "@/lib/apps";
 interface AppGridProps {
   apps: App[];
   sectionLabel: string;
-  subLabel: string;
+  subLabel?: string;
   variant?: "professional" | "personal";
 }
 
@@ -43,6 +43,7 @@ export default function AppGrid({
       </motion.p>
 
       {/* Sub-label */}
+      {subLabel && (
       <motion.p
         initial={{ opacity: 0, y: shouldReduce ? 0 : 12 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: shouldReduce ? 0 : 12 }}
@@ -52,6 +53,7 @@ export default function AppGrid({
       >
         {subLabel}
       </motion.p>
+      )}
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-12">

@@ -4,23 +4,27 @@ import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
 const certified = [
-  { label: "Claude Code Certified", issuer: "Anthropic", highlight: true },
+  { label: "Claude Code in Action", issuer: "Anthropic", highlight: true },
 ];
 
 const proficiencies = [
   { name: "Claude Code", category: "AI Dev" },
-  { name: "Claude Projects", category: "AI Dev" },
+  { name: "Claude API", category: "AI Dev" },
+  { name: "Model Context Protocol", category: "AI Dev" },
   { name: "AI Agent Development", category: "AI Dev" },
-  { name: "ChatGPT", category: "AI Platforms" },
-  { name: "Custom GPTs", category: "AI Platforms" },
-  { name: "OpenAI Codex", category: "AI Platforms" },
-  { name: "OpenAI GPTs", category: "AI Platforms" },
-  { name: "DeepMind", category: "AI Platforms" },
-  { name: "GitHub", category: "Infrastructure" },
+  { name: "OpenAI API", category: "AI Dev" },
+  { name: "Next.js", category: "Web Stack" },
+  { name: "TypeScript", category: "Web Stack" },
+  { name: "Tailwind CSS", category: "Web Stack" },
+  { name: "Supabase", category: "Web Stack" },
+  { name: "Postgres (Neon)", category: "Web Stack" },
   { name: "Vercel", category: "Infrastructure" },
+  { name: "GitHub", category: "Infrastructure" },
+  { name: "GitHub Actions", category: "Infrastructure" },
+  { name: "Progressive Web Apps", category: "Infrastructure" },
 ];
 
-const categories = ["AI Dev", "AI Platforms", "Infrastructure"];
+const categories = ["AI Dev", "Web Stack", "Infrastructure"];
 
 export default function TechStack() {
   const ref = useRef(null);
@@ -43,7 +47,7 @@ export default function TechStack() {
         // TOOLS &amp; PLATFORMS
       </motion.p>
 
-      {/* Claude Code Certified badge — hero treatment */}
+      {/* Claude Code in Action badge — hero treatment */}
       <motion.div
         initial={{ opacity: 0, y: shouldReduce ? 0 : 16 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: shouldReduce ? 0 : 16 }}
@@ -52,16 +56,19 @@ export default function TechStack() {
       >
         <div>
           <p className="font-mono mb-3" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "#c9a84c" }}>
-            ANTHROPIC — VERIFIED
+            ANTHROPIC — COURSE COMPLETED
           </p>
           <p
             className="font-display font-bold uppercase text-ink"
             style={{ fontSize: "clamp(1.4rem, 3vw, 2.4rem)", letterSpacing: "0.06em" }}
           >
-            Claude Code Certified
+            Claude Code in Action
           </p>
         </div>
-        <div
+        <a
+          href="https://verify.skilljar.com/c/ev7qdwsadodo"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             border: "1px solid #7a6330",
             padding: "0.5rem 1.25rem",
@@ -72,9 +79,9 @@ export default function TechStack() {
         >
           <div style={{ width: 6, height: 6, background: "#c9a84c" }} />
           <span className="font-mono text-gold" style={{ fontSize: "0.6rem", letterSpacing: "0.18em" }}>
-            CREDENTIAL VERIFIED
+            VERIFY CREDENTIAL &rarr;
           </span>
-        </div>
+        </a>
       </motion.div>
 
       {/* Proficiencies by category */}

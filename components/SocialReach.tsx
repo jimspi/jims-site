@@ -26,18 +26,18 @@ function useCountUp(target: number, active: boolean, duration = 1800) {
 }
 
 const stats = [
-  { value: 100, suffix: "K+", label: "Followers", detail: "Across Facebook & Instagram" },
-  { value: 100, suffix: "M+", label: "Annual Views", detail: "Video content, year over year" },
+  { value: 110, suffix: "K+", label: "Followers", detail: "Across my social platforms" },
+  { value: 250, suffix: "M+", label: "Views", detail: "More than a quarter billion, and counting" },
 ];
 
 const platforms = [
   {
     name: "Facebook",
     handle: "Jim Spiewak",
-    followers: "96K followers",
+    followers: "108K followers",
     href: "https://www.facebook.com/JimSpiewakKUTV2/",
     color: "#4f7396",
-    screenshot: "/social/facebook-profile.jpg",
+    screenshot: "/social/facebook-profile-v4.jpg",
     aspectRatio: "16/9",
   },
   {
@@ -64,7 +64,7 @@ export default function SocialReach() {
     <section
       ref={ref}
       className="bg-bg border-t border-line py-14 px-8 md:px-16 lg:px-24"
-      aria-label="Audience and social reach"
+      aria-label="Social media reach"
     >
       {/* Section label */}
       <motion.p
@@ -73,7 +73,7 @@ export default function SocialReach() {
         transition={{ duration: 0.4 }}
         className="section-label mb-8"
       >
-        // THE AUDIENCE
+        // SOCIAL
       </motion.p>
 
       {/* Stat pair */}
@@ -114,25 +114,6 @@ export default function SocialReach() {
           </motion.div>
         ))}
       </div>
-
-      {/* Narrative */}
-      <motion.div
-        initial={{ opacity: 0, y: shouldReduce ? 0 : 16 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: shouldReduce ? 0 : 16 }}
-        transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" as const }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 border-t border-rule pt-6 mb-8"
-      >
-        <div>
-          <p className="font-serif text-warm leading-relaxed" style={{ fontSize: "clamp(1rem, 1.4vw, 1.2rem)", fontStyle: "italic" }}>
-            The audience was never handed to me. It was built one story at a time — because the reporting was worth watching, and people kept sharing it.
-          </p>
-        </div>
-        <div>
-          <p className="font-body text-muted leading-relaxed" style={{ fontSize: "0.9rem" }}>
-            Nearly two decades of investigative and breaking news content has compounded into a following that reaches across Utah and beyond. The content that drives the most views isn't viral gimmicks — it's accountability journalism that hits people where they live: their safety, their government, their kids. When a story matters, the audience finds it.
-          </p>
-        </div>
-      </motion.div>
 
       {/* Platform cards with screenshots */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

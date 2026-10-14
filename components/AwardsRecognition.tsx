@@ -108,10 +108,10 @@ export default function AwardsRecognition() {
         <p className="section-label mb-8">REGIONAL &amp; CHAPTER</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-rule">
           {[
-            { count: "5×", title: "Regional Murrow Awards", org: "RTDNA" },
-            { count: "2×", title: "Emmy Awards", org: "Suncoast Chapter" },
-            { count: "6×", title: "Associated Press", org: "Broadcast Journalism" },
-            { count: "4×", title: "Emmy Nominations", org: "Regional Chapter" },
+            { count: "5×", title: "Regional Murrow Awards" },
+            { count: "3×", title: "Emmy Awards" },
+            { count: "6×", title: "Associated Press" },
+            { count: "4×", title: "Emmy Nominations" },
           ].map((item, i) => (
             <motion.div
               key={item.title}
@@ -132,12 +132,6 @@ export default function AwardsRecognition() {
                 style={{ fontSize: "clamp(0.85rem, 1.1vw, 1rem)", fontStyle: "italic" }}
               >
                 {item.title}
-              </p>
-              <p
-                className="font-mono text-muted"
-                style={{ fontSize: "0.6rem", letterSpacing: "0.12em" }}
-              >
-                {item.org}
               </p>
             </motion.div>
           ))}

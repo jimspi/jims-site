@@ -146,7 +146,7 @@ export default function AppCard({ app }: { app: App }) {
           className="link-gold font-mono"
           style={{ fontSize: "0.65rem", letterSpacing: "0.14em", color: "#7a6330" }}
         >
-          {linkLabel} &rarr;
+          {`${linkLabel} →`}
         </a>
       )}
     </motion.article>

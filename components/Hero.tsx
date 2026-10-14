@@ -316,10 +316,10 @@ export default function Hero() {
             {/* Builder */}
             <div>
               <p className="font-serif text-warm mb-1 leading-snug" style={{ fontSize: "clamp(0.78rem, 0.95vw, 0.92rem)", fontStyle: "italic" }}>
-                Building the tools I always wished existed.
+                I just started building.
               </p>
               <p className="font-body text-muted leading-relaxed" style={{ fontSize: "clamp(0.68rem, 0.82vw, 0.8rem)" }}>
-                Started with AI experiments to make my newsroom faster. Now shipping real products — for work, for family, for clients. Next.js, Supabase, TypeScript, the Anthropic Claude API. Claude Code is my development environment.
+                I started messing around with AI to save time in my workflow. Now I've got agents for work, games for my kids, and a few things for clients.
               </p>
             </div>
 

@@ -113,6 +113,7 @@ function Stop({
 export default function CareerTimeline() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.08 });
+  const shouldReduce = useReducedMotion();
 
   return (
     <section
@@ -134,6 +135,41 @@ export default function CareerTimeline() {
           <Stop key={stop.city} stop={stop} index={i} inView={inView} />
         ))}
       </div>
+
+      {/* AI chapter */}
+      <motion.article
+        initial={{ opacity: 0, y: shouldReduce ? 0 : 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: shouldReduce ? 0 : 20 }}
+        transition={{ delay: 0.08 + stops.length * 0.13, duration: 0.55, ease: "easeOut" as const }}
+        className="border-t border-rule pt-5 mt-4 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-x-10 gap-y-6"
+      >
+        <div>
+          <p className="font-mono mb-5" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "#7a6330" }}>
+            05
+          </p>
+          <p
+            className="font-display font-bold text-ink uppercase leading-none mb-1"
+            style={{ fontSize: "clamp(1.3rem, 2vw, 1.8rem)", letterSpacing: "0.06em" }}
+          >
+            AI<span className="text-gold" style={{ marginLeft: "0.4em" }}>BUILDER</span>
+          </p>
+          <p className="font-mono text-muted mb-6" style={{ fontSize: "0.65rem", letterSpacing: "0.14em" }}>
+            Alongside the newsroom
+          </p>
+        </div>
+        <div>
+          <p className="font-body text-muted leading-relaxed mb-5" style={{ fontSize: "0.875rem" }}>
+            I use Claude Code to build and ship real software: agents for work, a Chrome extension that finds the other side of a news story, and games for my kids. I've also completed Anthropic's courses on Claude Code, the Claude API and Model Context Protocol.
+          </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {["Claude Code", "Claude API", "Model Context Protocol", "AI agents"].map((skill) => (
+              <span key={skill} className="font-mono" style={{ fontSize: "0.62rem", letterSpacing: "0.12em", color: "#c9a84c" }}>
+                <span style={{ color: "#7a6330", marginRight: 6 }}>&mdash;</span>{skill.toUpperCase()}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.article>
 
       {/* Journey line — mobile */}
       <motion.p
